@@ -46,17 +46,6 @@
 <!--        <property name="maxBatchTime" value="5000"/>-->
 <!--        <property name="qualityOfServiceMode" value="DUPLICATES_OK"/>-->
 <!--    </bean>-->
-<!--    <bean init-method="start" id="bridge2" class="org.apache.activemq.artemis.jms.bridge.impl.JMSBridgeImpl">-->
-<!--        <property name="bridgeName" value="bridge2"/>-->
-<!--        <property name="sourceConnectionFactoryFactory" ref="artemisFactoryFactory"/>-->
-<!--        <property name="sourceDestinationFactory" ref="from02"/>-->
-<!--        <property name="targetConnectionFactoryFactory" ref="mqFactoryFactory"/>-->
-<!--        <property name="targetDestinationFactory" ref="to01"/>-->
-<!--        <property name="failureRetryInterval" value="5000"/>-->
-<!--        <property name="maxBatchSize" value="100"/>-->
-<!--        <property name="maxBatchTime" value="5000"/>-->
-<!--        <property name="qualityOfServiceMode" value="DUPLICATES_OK"/>-->
-<!--    </bean>-->
 
     <bean init-method="start" id="bridge3" class="org.apache.activemq.artemis.jms.bridge.impl.JMSBridgeImpl">
         <property name="sourceConnectionFactoryFactory" ref="mqFactoryFactory"/>
@@ -66,6 +55,7 @@
         <property name="failureRetryInterval" value="5000"/>
         <property name="maxBatchSize" value="100"/>
         <property name="maxBatchTime" value="5000"/>
+        <property name="maxRetries" value="-1"/>
         <property name="qualityOfServiceMode" value="DUPLICATES_OK"/>
     </bean>
 </beans>
