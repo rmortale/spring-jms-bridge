@@ -40,7 +40,7 @@ public class MQFactoryFactory implements ConnectionFactoryFactory {
         if (StringUtils.hasText(sslCipherSuite)) {
             cf.setSSLCipherSuite(sslCipherSuite);
         }
-        if (StringUtils.hasText(sslBundleName) && sslBundles != null) {
+        if (StringUtils.hasText(sslBundleName)) {
             SslBundle bundle = sslBundles.getBundle(sslBundleName);
             cf.setSSLSocketFactory(bundle.createSslContext().getSocketFactory());
         }
