@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.jms.artemis.ArtemisAutoConfigurati
 import org.springframework.context.annotation.ImportResource;
 
 @ImportResource("classpath:bridge.xml")
-@SpringBootApplication(exclude = { ArtemisAutoConfiguration.class })
+@SpringBootApplication(exclude = {ArtemisAutoConfiguration.class})
 public class SpringJmsBridgeApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
@@ -16,6 +16,13 @@ public class SpringJmsBridgeApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-       // bridge1.start();
+        // bridge1.start();
     }
+
+//    @Bean
+//    public SSLContext sslContextFactory(SslBundles sslBundles) {
+//        SslBundle mqssl = sslBundles.getBundle("mqssl");
+//
+//        return mqssl.createSslContext();
+//    }
 }

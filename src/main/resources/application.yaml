@@ -4,3 +4,11 @@ logging:
   level:
     org.apache.activemq.artemis.jms.bridge: TRACE
 
+spring:
+  ssl:
+    bundle:
+      jks:
+        mqssl:
+          truststore:
+            location: "classpath:clientkey.jks"
+            password: changeit
