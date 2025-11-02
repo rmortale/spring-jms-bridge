@@ -33,7 +33,7 @@
     </bean>
 
 
-    <bean init-method="start" id="bridge3" class="org.apache.activemq.artemis.jms.bridge.impl.JMSBridgeImpl">
+    <bean destroy-method="stop" init-method="start" id="bridge3" class="org.apache.activemq.artemis.jms.bridge.impl.JMSBridgeImpl">
         <property name="sourceConnectionFactoryFactory" ref="mqFactoryFactory"/>
         <property name="sourceDestinationFactory">
             <bean class="ch.dulce.springjmsbridge.factory.MQDestinationFactory">
