@@ -7,14 +7,12 @@ import lombok.Setter;
 import org.apache.activemq.artemis.jms.bridge.ConnectionFactoryFactory;
 import org.springframework.boot.ssl.SslBundle;
 import org.springframework.boot.ssl.SslBundles;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.util.StringUtils;
 
 import javax.jms.ConnectionFactory;
 
 @Getter
 @Setter
-@Configuration
 public class MQFactoryFactory implements ConnectionFactoryFactory {
 
     private String username;
