@@ -23,6 +23,10 @@ public class MqToArtemisBridge {
     private String sourceQueueName;
     private String targetQueueName;
     private String bridgeName;
+    private int maxRetries = -1;
+    private long failureRetryInterval = 5000;
+    private int maxBatchSize = 100;
+    private long maxBatchWaitTime = 5000;
 
     @Getter(AccessLevel.NONE)
     @Setter(AccessLevel.NONE)
@@ -50,10 +54,10 @@ public class MqToArtemisBridge {
         ArtemisDestinationFactory df = new ArtemisDestinationFactory();
         df.setDestinationName(targetQueueName);
         jmsBridge.setTargetDestinationFactory(df);
-        jmsBridge.setFailureRetryInterval(5000);
-        jmsBridge.setMaxBatchSize(100);
-        jmsBridge.setMaxBatchTime(5000);
-        jmsBridge.setMaxRetries(-1);
+        jmsBridge.setFailureRetryInterval(failureRetryInterval);
+        jmsBridge.setMaxBatchSize(maxBatchSize);
+        jmsBridge.setMaxBatchTime(maxBatchWaitTime);
+        jmsBridge.setMaxRetries(maxRetries);
         jmsBridge.setQualityOfServiceMode(QualityOfServiceMode.DUPLICATES_OK);
     }
 }
