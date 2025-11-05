@@ -1,4 +1,5 @@
-package ch.dulce.springjmsbridge;
+package ch.dulce.springjmsbridge.bridge;
+
 
 import ch.dulce.springjmsbridge.factory.ArtemisDestinationFactory;
 import ch.dulce.springjmsbridge.factory.ArtemisFactoryFactory;
@@ -16,10 +17,10 @@ import org.apache.activemq.artemis.jms.bridge.impl.JMSBridgeImpl;
 @Getter
 @Setter
 @ToString
-public class MqToArtemisBridge {
-
-    private MQFactoryFactory sourceFactory;
-    private ArtemisFactoryFactory targetFactory;
+public class ArtemisToMqBridge {
+    
+    private MQFactoryFactory targetFactory;
+    private ArtemisFactoryFactory sourceFactory;
     private String sourceQueueName;
     private String targetQueueName;
     private String bridgeName;
@@ -34,12 +35,12 @@ public class MqToArtemisBridge {
 
     public void start() throws Exception {
         createBridge();
-        log.info("Starting MqToArtemisBridge {}", this);
+        log.info("Starting ArtemisToMqBridge {}", this);
         jmsBridge.start();
     }
 
     public void stop() throws Exception {
-        log.info("Stoping MqToArtemisBridge");
+        log.info("Stoping ArtemisToMqBridge");
         jmsBridge.stop();
     }
 
@@ -49,15 +50,17 @@ public class MqToArtemisBridge {
         jmsBridge.setSourceConnectionFactoryFactory(sourceFactory);
         jmsBridge.setTargetConnectionFactoryFactory(targetFactory);
         MQDestinationFactory sf = new MQDestinationFactory();
-        sf.setDestinationName(sourceQueueName);
-        jmsBridge.setSourceDestinationFactory(sf);
+        sf.setDestinationName(targetQueueName);
+        jmsBridge.setTargetDestinationFactory(sf);
         ArtemisDestinationFactory df = new ArtemisDestinationFactory();
-        df.setDestinationName(targetQueueName);
-        jmsBridge.setTargetDestinationFactory(df);
+        df.setDestinationName(sourceQueueName);
+        jmsBridge.setSourceDestinationFactory(df);
         jmsBridge.setFailureRetryInterval(failureRetryInterval);
         jmsBridge.setMaxBatchSize(maxBatchSize);
         jmsBridge.setMaxBatchTime(maxBatchWaitTime);
         jmsBridge.setMaxRetries(maxRetries);
         jmsBridge.setQualityOfServiceMode(QualityOfServiceMode.DUPLICATES_OK);
     }
+
+
 }
