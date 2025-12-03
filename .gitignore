@@ -31,3 +31,4 @@ build/
 
 ### VS Code ###
 .vscode/
+config/.camel-jbang/camel-jbang-run.properties
