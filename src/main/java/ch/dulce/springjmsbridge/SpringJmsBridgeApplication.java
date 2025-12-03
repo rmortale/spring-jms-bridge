@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jms.artemis.ArtemisAutoConfiguration;
 import org.springframework.context.annotation.ImportResource;
 
-@ImportResource({"classpath:factories.xml", "classpath:bridge02.xml"})
+@ImportResource({"file:config/factories.xml", "file:config/bridges.xml"})
 @SpringBootApplication(exclude = {ArtemisAutoConfiguration.class})
 public class SpringJmsBridgeApplication {
 
