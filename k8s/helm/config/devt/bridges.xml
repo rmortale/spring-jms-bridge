@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean init-method="start" destroy-method="stop" class="ch.dulce.springjmsbridge.bridge.MqToArtemisBridge"
+          autowire="byType">
+        <property name="bridgeName" value="mqToArtemisBridge01"/>
+        <property name="sourceQueueName" value="DEV.QUEUE.1"/>
+        <property name="targetQueueName" value="target.queue.02"/>
+    </bean>
+
+    <bean init-method="start" destroy-method="stop" class="ch.dulce.springjmsbridge.bridge.ArtemisToMqBridge"
+          autowire="byType">
+        <property name="bridgeName" value="artemisToMqBridge01"/>
+        <property name="targetQueueName" value="DEV.QUEUE.1"/>
+        <property name="sourceQueueName" value="source.queue.01"/>
+        <property name="maxRetries" value="20"/>
+    </bean>
+
+</beans>

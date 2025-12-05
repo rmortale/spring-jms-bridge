@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="mqFactoryFactory" class="ch.dulce.springjmsbridge.factory.MQFactoryFactory" autowire="byType">
+        <property name="host" value="oravm05"/>
+        <property name="port" value="1414"/>
+        <property name="channel" value="DEV.APP.SVRCONN"/>
+        <property name="queueManager" value="QM1"/>
+        <property name="username" value="app"/>
+        <property name="password" value="passw0rd"/>
+        <!-- <property name="sslCipherSuite" value="*TLS13"/> -->
+        <!-- <property name="sslBundleName" value="mqssl"/> SSL bundle defined in application.yaml named mssql -->
+    </bean>
+
+    <bean id="artemisFactoryFactory" class="ch.dulce.springjmsbridge.factory.ArtemisFactoryFactory">
+        <property name="brokerUrl" value="tcp://oravm05:61616"/>
+        <property name="username" value="artemis"/>
+        <property name="password" value="artemis"/>
+    </bean>
+    
+</beans>

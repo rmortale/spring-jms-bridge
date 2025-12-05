@@ -1,0 +1,11 @@
+image:
+  tag: db28b97
+
+extraVolumes:
+  - name: bridge-config-vol
+    configMap:
+      name: "{{ .Release.Name }}-cm"
+     
+extraVolumeMounts:
+  - name: bridge-config-vol
+    mountPath: /config
