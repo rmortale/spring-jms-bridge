@@ -4,7 +4,7 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-cm
 data:
-{{ (.Files.Glob "config/devt/*").AsConfig | indent 2 }}
+{{ (.Files.Glob (printf "config/%s/*" .Values.app.configPath)).AsConfig | indent 2 }}
 
 ---
 apiVersion: v1
@@ -14,5 +14,5 @@ metadata:
 type: Opaque
 data:
   clientkey.jks: |-
-    {{ .Files.Get "config/devt/truststore/clientkey.jks" | b64enc }}
+    {{ .Files.Get (printf "config/%s/truststore/clientkey.jks" .Values.app.configPath) | b64enc }}
 
