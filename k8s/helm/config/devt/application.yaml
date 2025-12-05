@@ -8,5 +8,5 @@ spring:
       jks:
         mqssl:
           truststore:
-            location: "file:config/clientkey.jks"
+            location: "file:truststore/clientkey.jks"
             password: changeit

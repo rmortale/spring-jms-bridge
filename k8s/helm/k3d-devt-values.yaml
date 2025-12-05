@@ -5,7 +5,14 @@ extraVolumes:
   - name: bridge-config-vol
     configMap:
       name: "{{ .Release.Name }}-cm"
+
+  - name: bridge-jks-vol
+    secret:
+      secretName: "{{ .Release.Name }}-secret"
      
 extraVolumeMounts:
   - name: bridge-config-vol
     mountPath: /config
+
+  - name: bridge-jks-vol
+    mountPath: /truststore

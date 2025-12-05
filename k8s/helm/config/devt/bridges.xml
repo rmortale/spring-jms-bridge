@@ -13,7 +13,7 @@
     <bean init-method="start" destroy-method="stop" class="ch.dulce.springjmsbridge.bridge.ArtemisToMqBridge"
           autowire="byType">
         <property name="bridgeName" value="artemisToMqBridge01"/>
-        <property name="targetQueueName" value="DEV.QUEUE.1"/>
+        <property name="targetQueueName" value="DEV.QUEUE.2"/>
         <property name="sourceQueueName" value="source.queue.01"/>
         <property name="maxRetries" value="20"/>
     </bean>
