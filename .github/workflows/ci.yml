@@ -62,7 +62,7 @@ jobs:
 
       - name: update tags in helm values files
         run: |
-          sed -i "s,tag:.*,tag:\ ${GITHUB_SHA::7}," k8s/helm-values/k3d-devt-values.yaml
+          sed -i "s,tag:.*,tag:\ ${GITHUB_SHA::7}," k8s/helm/k3d-devt-values.yaml
           # if [ $GITHUB_REF_NAME == 'main' ]; then
           #   echo "update test values"
           #   sed -i "s,tag:.*,tag:\ ${GITHUB_SHA::7}," k8s/helm-values/k3d-test-values.yaml
