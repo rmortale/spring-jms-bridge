@@ -1,6 +1,6 @@
 logging:
   level:
-    org.apache.activemq.artemis.jms.bridge: TRACE
+    org.apache.activemq.artemis.jms.bridge: INFO
 
 spring:
   ssl:

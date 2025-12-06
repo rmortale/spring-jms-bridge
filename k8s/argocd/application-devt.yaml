@@ -13,8 +13,8 @@ spec:
   source:
     helm:
       valueFiles:
-      - k8s/helm/k3d-devt-values.yaml
-    path: .
+      - k3d-devt-values.yaml
+    path: k8s/helm
     repoURL: https://github.com/rmortale/spring-jms-bridge.git
     targetRevision: master
   syncPolicy:
