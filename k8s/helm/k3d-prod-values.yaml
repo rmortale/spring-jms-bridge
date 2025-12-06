@@ -1,5 +1,5 @@
 image:
-  tag: db28b97
+  tag: d99ff19
 
 app:
   configPath: prod
