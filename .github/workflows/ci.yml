@@ -28,7 +28,6 @@ jobs:
             ${{ env.REGISTRY }}/${{ github.repository }}
           tags: |
             type=ref,event=branch
-            type=sha,prefix={{branch}}-
             type=sha,prefix=
 
       - name: Set up JDK
