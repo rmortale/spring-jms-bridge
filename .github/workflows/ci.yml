@@ -5,6 +5,8 @@ on:
     paths-ignore:
       - "k8s/**"
       - "config/**"
+    tags-ignore:
+      - "*"
 
 env:
   REGISTRY: ghcr.io
